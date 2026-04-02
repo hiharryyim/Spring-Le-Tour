@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "next-dev",
+      "runtimeExecutable": "/bin/sh",
+      "runtimeArgs": ["-c", "export PATH=/opt/homebrew/bin:$PATH && cd /Users/harrymac/Desktop/洗狗/Spring\\ Le\\ Tour/Web && npx next dev -p $PORT"],
+      "port": 3000,
+      "autoPort": true
+    }
+  ]
+}
