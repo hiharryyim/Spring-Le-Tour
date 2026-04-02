@@ -100,7 +100,7 @@ export default function ContactUs() {
                 </div>
               </div>
 
-              {/* Phone placeholder */}
+              {/* Phone */}
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary flex-shrink-0">
                   <svg
@@ -119,7 +119,12 @@ export default function ContactUs() {
                 </div>
                 <div>
                   <p className="font-medium text-dark">Phone</p>
-                  <p className="text-dark-light">Coming soon</p>
+                  <a
+                    href="tel:+15512675183"
+                    className="text-primary hover:text-primary-dark transition-colors"
+                  >
+                    +1 (551) 267-5183
+                  </a>
                 </div>
               </div>
             </div>

@@ -58,6 +58,14 @@ export default function Footer() {
                   harry.yan@springletour.com
                 </a>
               </li>
+              <li>
+                <a
+                  href="tel:+15512675183"
+                  className="hover:text-primary-light transition-colors"
+                >
+                  +1 (551) 267-5183
+                </a>
+              </li>
               <li>Chino, California</li>
               <li>United States</li>
             </ul>
