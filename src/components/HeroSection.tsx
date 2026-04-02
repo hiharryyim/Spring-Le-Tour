@@ -3,9 +3,15 @@ import Image from "next/image";
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background gradient placeholder - replace with hero image */}
-      <div className="absolute inset-0 bg-gradient-to-br from-dark via-dark-light to-primary-dark" />
-      <div className="absolute inset-0 bg-black/40" />
+      {/* Hero background image */}
+      <Image
+        src="/images/hero-desert.jpg"
+        alt="Spring Le Tour Sprinter Van in the desert"
+        fill
+        className="object-cover"
+        priority
+      />
+      <div className="absolute inset-0 bg-black/50" />
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

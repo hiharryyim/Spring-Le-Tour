@@ -68,6 +68,8 @@ const deluxeFeatures = [
   },
 ];
 
+import Image from "next/image";
+
 function ProductCard({
   badge,
   name,
@@ -76,6 +78,8 @@ function ProductCard({
   features,
   cta,
   featured,
+  image,
+  imageAlt,
 }: {
   badge: string;
   name: string;
@@ -84,15 +88,29 @@ function ProductCard({
   features: { title: string; items: string[] }[];
   cta: string;
   featured?: boolean;
+  image: string;
+  imageAlt: string;
 }) {
   return (
     <div
-      className={`rounded-2xl p-8 sm:p-10 flex flex-col h-full ${
+      className={`rounded-2xl overflow-hidden flex flex-col h-full ${
         featured
           ? "bg-dark text-white ring-2 ring-primary"
           : "bg-white ring-1 ring-dark/10"
       }`}
     >
+      {/* Product image */}
+      <div className="relative w-full aspect-[16/9]">
+        <Image
+          src={image}
+          alt={imageAlt}
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+      </div>
+
+      <div className="p-8 sm:p-10 flex flex-col flex-1">
       {/* Badge */}
       <span
         className={`inline-block self-start text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded-full mb-6 ${
@@ -168,6 +186,7 @@ function ProductCard({
       >
         {cta}
       </a>
+      </div>
     </div>
   );
 }
@@ -199,6 +218,8 @@ export default function Products() {
             description="The professional-grade core structure for a rapid and flexible build-out. We've handled insulation, sub-flooring, and wall paneling — so you can focus on bringing your unique layout to life."
             features={foundationFeatures}
             cta="Start Building Today"
+            image="/images/foundation-interior.png"
+            imageAlt="Foundation Package interior showing flooring, wall panels and insulation"
           />
           <ProductCard
             badge="Turn-Key Ready"
@@ -208,6 +229,8 @@ export default function Products() {
             features={deluxeFeatures}
             cta="Ready to Hit the Road?"
             featured
+            image="/images/deluxe-interior.jpg"
+            imageAlt="Deluxe Build interior with bed, kitchen and wood cabinets"
           />
         </div>
 
