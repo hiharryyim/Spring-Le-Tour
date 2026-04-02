@@ -4,11 +4,41 @@ import { useState, type FormEvent } from "react";
 
 export default function ContactUs() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(false);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // TODO: Connect to form backend (Vercel serverless, Formspree, etc.)
-    setSubmitted(true);
+    setSubmitting(true);
+    setError(false);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const data = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      company: formData.get("company") as string,
+      message: formData.get("message") as string,
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+        form.reset();
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -168,6 +198,7 @@ export default function ContactUs() {
                   </label>
                   <input
                     id="name"
+                    name="name"
                     type="text"
                     required
                     className="w-full px-4 py-3 rounded-lg border border-dark/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors bg-bg"
@@ -183,6 +214,7 @@ export default function ContactUs() {
                   </label>
                   <input
                     id="email"
+                    name="email"
                     type="email"
                     required
                     className="w-full px-4 py-3 rounded-lg border border-dark/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors bg-bg"
@@ -198,6 +230,7 @@ export default function ContactUs() {
                   </label>
                   <input
                     id="company"
+                    name="company"
                     type="text"
                     className="w-full px-4 py-3 rounded-lg border border-dark/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors bg-bg"
                     placeholder="Your company (optional)"
@@ -212,17 +245,24 @@ export default function ContactUs() {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
                     required
                     rows={4}
                     className="w-full px-4 py-3 rounded-lg border border-dark/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors bg-bg resize-none"
                     placeholder="Tell us about your project..."
                   />
                 </div>
+                {error && (
+                  <p className="text-red-600 text-sm text-center">
+                    Something went wrong. Please try again or email us directly.
+                  </p>
+                )}
                 <button
                   type="submit"
-                  className="w-full bg-primary text-white py-3.5 rounded-full font-medium hover:bg-primary-dark transition-colors"
+                  disabled={submitting}
+                  className="w-full bg-primary text-white py-3.5 rounded-full font-medium hover:bg-primary-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Send Message
+                  {submitting ? "Sending..." : "Send Message"}
                 </button>
               </form>
             )}
