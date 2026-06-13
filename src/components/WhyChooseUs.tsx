@@ -57,7 +57,7 @@ const reasons = [
     ),
     title: "True Turn-Key Solutions",
     description:
-      "Skip the 6-to-12-month waitlists. Our solutions are completely turn-key — fully equipped, rigorously tested, and ready to generate revenue or hit the road the moment you receive the keys.",
+      "Skip the 6-to-12-month waitlists. Our solutions are completely turn-key: fully equipped, rigorously tested, and ready to generate revenue or hit the road the moment you receive the keys.",
   },
   {
     icon: (
@@ -77,7 +77,7 @@ const reasons = [
     ),
     title: "Versatility Across Industries",
     description:
-      "Our modular architecture adapts to serve diverse needs — from campervans and mobile pet grooming to food carts, retail spaces, and clinical units. One platform, limitless possibilities.",
+      "Our modular architecture adapts to serve diverse needs, from campervans and mobile pet grooming to food carts, retail spaces, and clinical units. One platform, limitless possibilities.",
   },
   {
     icon: (
@@ -117,7 +117,7 @@ const reasons = [
     ),
     title: "Scalable Fleet Production",
     description:
-      "Whether you need a single vehicle or a fleet of fifty, we scale with your success. Our standardized manufacturing and robust global supply chain allow us to flawlessly replicate your custom mobile unit at volume — without compromising quality or lead time.",
+      "Whether you need a single vehicle or a fleet of fifty, we scale with your success. Our standardized manufacturing and robust global supply chain allow us to flawlessly replicate your custom mobile unit at volume, without compromising quality or lead time.",
   },
 ];
 

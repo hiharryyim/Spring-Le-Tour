@@ -18,7 +18,7 @@ export default function WhoWeAre() {
             <p className="text-dark-light text-lg leading-relaxed mb-6">
               Headquartered in California, Spring Le Tour is a forward-thinking
               design and manufacturing firm specializing in high-quality,
-              turn-key mobile solutions. We don&apos;t just build vehicles — we
+              turn-key mobile solutions. We don&apos;t just build vehicles. We
               engineer purpose-driven mobile spaces designed to move your
               lifestyle or business forward.
             </p>

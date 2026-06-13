@@ -15,7 +15,7 @@ export default function Footer() {
               className="mb-4 brightness-0 invert opacity-80"
             />
             <p className="text-sm leading-relaxed max-w-xs">
-              Premium turn-key mobile solutions — engineered in California,
+              Premium turn-key mobile solutions, engineered in California,
               built to move your vision forward.
             </p>
           </div>
@@ -66,8 +66,8 @@ export default function Footer() {
                   +1 (551) 267-5183
                 </a>
               </li>
-              <li>Chino, California</li>
-              <li>United States</li>
+              <li>11562 Range View Rd</li>
+              <li>Jurupa Valley, CA 91752</li>
             </ul>
           </div>
         </div>

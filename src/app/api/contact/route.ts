@@ -19,7 +19,7 @@ export async function POST(request: Request) {
       from: "Spring Le Tour Website <contact@springletour.com>",
       to: "harry.yan@springletour.com",
       replyTo: email,
-      subject: `New Contact from ${name} — Spring Le Tour Website`,
+      subject: `New Contact from ${name} via Spring Le Tour Website`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #A3A24A; border-bottom: 2px solid #A3A24A; padding-bottom: 10px;">

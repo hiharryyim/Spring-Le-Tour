@@ -29,7 +29,7 @@ export default function HeroSection() {
           <span className="text-primary-light">Empowering Your Business.</span>
         </h1>
         <p className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Premium turn-key mobile solutions — engineered in California, built to
+          Premium turn-key mobile solutions, engineered in California, built to
           move.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

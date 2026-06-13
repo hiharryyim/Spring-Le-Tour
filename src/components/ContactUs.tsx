@@ -68,7 +68,7 @@ export default function ContactUs() {
               <p className="text-dark-light leading-relaxed mb-6">
                 Whether you&apos;re a dealer looking for quality conversion
                 packages, an entrepreneur launching a mobile fleet, or just
-                curious about what we do — we&apos;d love to hear from you.
+                curious about what we do, we&apos;d love to hear from you.
               </p>
             </div>
 
@@ -126,7 +126,7 @@ export default function ContactUs() {
                 </div>
                 <div>
                   <p className="font-medium text-dark">Location</p>
-                  <p className="text-dark-light">Chino, California</p>
+                  <p className="text-dark-light">11562 Range View Rd, Jurupa Valley, CA 91752</p>
                 </div>
               </div>
 
