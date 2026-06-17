@@ -26,9 +26,16 @@ export default function Products() {
         <ModelStrip />
 
         {/* Two demos prove one platform */}
-        <div className="text-center mb-10">
-          <p className="text-accent font-medium tracking-wide uppercase text-sm">
+        <div className="text-center mb-10 max-w-2xl mx-auto">
+          <p className="text-accent font-semibold tracking-wide uppercase text-sm mb-3">
             One Platform, Proven Across Industries
+          </p>
+          <h3 className="font-[family-name:var(--font-playfair)] text-2xl sm:text-3xl font-bold text-dark mb-3">
+            Two Solutions, Ready to Build
+          </h3>
+          <p className="text-dark-light text-base">
+            The same modular platform powers both. Choose a solution below to
+            see how it is built, from Foundation Kit to turn-key.
           </p>
         </div>
         <DemoShowcase demos={demos} />

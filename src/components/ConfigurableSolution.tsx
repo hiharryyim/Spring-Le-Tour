@@ -26,7 +26,26 @@ const icons: Record<string, React.ReactNode> = {
   lighting: (
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.508 1.333 1.508 2.316V18" />
   ),
+  wind: (
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.75 7.5h12a2.25 2.25 0 100-4.5 2.25 2.25 0 00-2.121 1.5M3 12h16.5a2.25 2.25 0 110 4.5 2.25 2.25 0 01-2.121-1.5M3 16.5h9.75a2.25 2.25 0 110 4.5 2.25 2.25 0 01-2.121-1.5" />
+  ),
+  shield: (
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12.75L11.25 15 15 9.75M21 12c0 4.556-3.04 8.25-7.5 9.563C9.04 20.25 6 16.556 6 12V6.75c0-.621.504-1.125 1.125-1.125 2.06 0 3.96-.73 5.43-1.948a1.125 1.125 0 011.39 0c1.47 1.218 3.37 1.948 5.43 1.948.621 0 1.125.504 1.125 1.125V12z" />
+  ),
 };
+
+// Pick a contextual icon for each spec line from keywords.
+function specIconName(text: string): string {
+  const t = text.toLowerCase();
+  if (/dryer|airflow|exhaust|drying|vent|fan/.test(t)) return "wind";
+  if (/extinguish|alarm|first-aid|safety/.test(t)) return "shield";
+  if (/water|gallon|gal\b|tub|pump|shower|hose|tank/.test(t)) return "water";
+  if (/btu|a\/c|diesel heater|insulat|idling/.test(t)) return "climate";
+  if (/table|vacuum|groom|step stool|tier/.test(t)) return "grooming";
+  if (/led|light|lamp/.test(t)) return "lighting";
+  if (/battery|kwh|ah\b|inverter|outlet|110v|12v|solar|power|shore|charg|usb|gfi|panel/.test(t)) return "power";
+  return "structure";
+}
 
 function ModuleIcon({ name }: { name: string }) {
   return (
@@ -80,35 +99,56 @@ export default function ConfigurableSolution({ demo }: { demo: DemoLine }) {
 
       {/* Step 1 — Foundation Kit (start here) */}
       <StepLabel n="1" text="Start with the base" />
-      <div className="rounded-2xl bg-white border border-primary/25 overflow-hidden flex flex-col md:flex-row mb-16">
-        <div className="relative md:w-2/5 aspect-[16/10] md:aspect-auto md:min-h-[320px]">
-          <Image src={f.image.src} alt={f.image.alt} fill className="object-cover" />
-        </div>
-        <div className="p-7 sm:p-9 md:w-3/5 flex flex-col">
-          <span className="inline-block self-start text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded-full mb-4 bg-accent/10 text-accent">
-            {f.badge}
-          </span>
-          <h4 className="font-[family-name:var(--font-playfair)] text-2xl font-bold text-dark">
-            {f.name}
-          </h4>
-          <p className="text-primary text-base mt-1 mb-6">{f.tagline}</p>
-          <div className="grid sm:grid-cols-2 gap-x-8 gap-y-3 mb-7">
-            {f.includes.map((item) => (
-              <div key={item} className="flex items-start gap-2.5 text-base text-dark-light">
-                <svg className="w-5 h-5 mt-0.5 flex-shrink-0 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.5 12.75l6 6 9-13.5" />
-                </svg>
-                {item}
+      <div className="rounded-2xl bg-white border border-primary/25 p-7 sm:p-9 mb-16">
+        <span className="inline-block text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded-full mb-4 bg-accent/10 text-accent">
+          {f.badge}
+        </span>
+        <h4 className="font-[family-name:var(--font-playfair)] text-2xl font-bold text-dark">
+          {f.name}
+        </h4>
+        <p className="text-primary text-base mt-1 mb-6">{f.tagline}</p>
+
+        {/* Foundation gallery: real photos and/or platform renders */}
+        <div
+          className={`grid grid-cols-1 gap-4 mb-7 ${
+            f.gallery.length === 3 ? "sm:grid-cols-3" : "sm:grid-cols-2"
+          }`}
+        >
+          {f.gallery.map((p) => (
+            <figure key={p.src}>
+              <div className="relative aspect-[16/10] rounded-xl overflow-hidden ring-1 ring-dark/5 bg-bg-alt">
+                <Image
+                  src={p.src}
+                  alt={p.alt}
+                  fill
+                  className={p.fit === "contain" ? "object-contain" : "object-cover"}
+                />
               </div>
-            ))}
-          </div>
-          <a
-            href="#contact"
-            className="self-start bg-dark text-white px-7 py-3 rounded-full text-sm font-medium hover:bg-dark-light transition-colors"
-          >
-            {f.cta}
-          </a>
+              {p.caption && (
+                <figcaption className="mt-2 text-xs text-dark-light/70 text-center">
+                  {p.caption}
+                </figcaption>
+              )}
+            </figure>
+          ))}
         </div>
+
+        <div className="grid sm:grid-cols-2 gap-x-8 gap-y-3 mb-7">
+          {f.includes.map((item) => (
+            <div key={item} className="flex items-start gap-2.5 text-base text-dark-light">
+              <svg className="w-5 h-5 mt-0.5 flex-shrink-0 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+              {item}
+            </div>
+          ))}
+        </div>
+        <a
+          href="#contact"
+          className="inline-block self-start bg-dark text-white px-7 py-3 rounded-full text-sm font-medium hover:bg-dark-light transition-colors"
+        >
+          {f.cta}
+        </a>
       </div>
 
       {/* Step 2 — Add modules */}
@@ -139,6 +179,29 @@ export default function ConfigurableSolution({ demo }: { demo: DemoLine }) {
               <span className="text-primary font-semibold">Make it yours&nbsp;</span>
               {m.swap}
             </p>
+            {m.specs && (
+              <details className="group mt-4">
+                <summary className="flex items-center gap-2 cursor-pointer list-none [&::-webkit-details-marker]:hidden text-xs font-semibold text-primary hover:text-primary-dark select-none">
+                  <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  <span>Full specifications</span>
+                  <svg className="w-3.5 h-3.5 ml-auto transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <ul className="mt-3 space-y-2.5 border-t border-dark/5 pt-3">
+                  {m.specs.map((s) => (
+                    <li key={s} className="flex items-start gap-2 text-xs text-dark-light leading-relaxed">
+                      <svg className="w-4 h-4 mt-0.5 flex-shrink-0 text-primary/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        {icons[specIconName(s)]}
+                      </svg>
+                      <span>{s}</span>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            )}
           </div>
         ))}
       </div>
@@ -168,13 +231,22 @@ export default function ConfigurableSolution({ demo }: { demo: DemoLine }) {
         <p className="text-white/70 text-base leading-relaxed max-w-3xl mb-7">
           {demo.turnkey.description}
         </p>
-        <div className="grid sm:grid-cols-2 gap-4">
+        <div
+          className={`grid grid-cols-1 gap-4 ${
+            demo.turnkey.gallery.length === 3 ? "sm:grid-cols-3" : "sm:grid-cols-2"
+          }`}
+        >
           {demo.turnkey.gallery.map((p) => (
             <div
               key={p.src}
-              className="relative aspect-[16/10] rounded-xl overflow-hidden ring-1 ring-white/10"
+              className="relative aspect-[16/10] rounded-xl overflow-hidden ring-1 ring-white/10 bg-bg-alt"
             >
-              <Image src={p.src} alt={p.alt} fill className="object-cover" />
+              <Image
+                src={p.src}
+                alt={p.alt}
+                fill
+                className={p.fit === "contain" ? "object-contain" : "object-cover"}
+              />
             </div>
           ))}
         </div>

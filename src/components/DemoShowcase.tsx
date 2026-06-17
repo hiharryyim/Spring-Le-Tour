@@ -9,21 +9,34 @@ export default function DemoShowcase({ demos }: { demos: DemoLine[] }) {
 
   return (
     <div>
-      {/* Tabs */}
-      <div className="flex flex-col sm:flex-row justify-center gap-3 mb-10">
-        {demos.map((d, i) => (
-          <button
-            key={d.id}
-            onClick={() => setActive(i)}
-            className={`px-6 py-3 rounded-full text-sm font-medium tracking-wide transition-colors ${
-              i === active
-                ? "bg-primary text-white"
-                : "bg-white text-dark-light ring-1 ring-dark/10 hover:ring-primary/40"
-            }`}
-          >
-            {d.tabLabel}
-          </button>
-        ))}
+      {/* Solution selector — two clear, prominent options */}
+      <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+        {demos.map((d, i) => {
+          const on = i === active;
+          return (
+            <button
+              key={d.id}
+              onClick={() => setActive(i)}
+              aria-pressed={on}
+              className={`flex-1 sm:flex-none sm:min-w-[280px] px-7 py-5 rounded-2xl text-center sm:text-left transition-all ${
+                on
+                  ? "bg-primary text-white shadow-lg shadow-primary/20"
+                  : "bg-white ring-1 ring-dark/10 text-dark hover:ring-primary/50 hover:-translate-y-0.5"
+              }`}
+            >
+              <span className="block font-[family-name:var(--font-playfair)] text-lg sm:text-xl font-bold">
+                {d.tabLabel}
+              </span>
+              <span
+                className={`block text-sm mt-1 ${
+                  on ? "text-white/85" : "text-dark-light"
+                }`}
+              >
+                {d.tabSubtitle}
+              </span>
+            </button>
+          );
+        })}
       </div>
 
       <ConfigurableSolution demo={demos[active]} />
