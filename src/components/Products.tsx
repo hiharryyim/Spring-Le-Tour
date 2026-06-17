@@ -39,6 +39,20 @@ export default function Products() {
           </p>
         </div>
         <DemoShowcase demos={demos} />
+
+        {/* Bridge to the broader platform (keeps the 2 demos consistent with
+            the wider category claim elsewhere on the site) */}
+        <p className="text-center text-dark-light mt-12 max-w-2xl mx-auto">
+          Building something else? These are two examples. The same modular
+          platform adapts to food carts, mobile retail, clinical units and
+          more.{" "}
+          <a
+            href="#contact"
+            className="text-primary font-medium hover:text-primary-dark transition-colors"
+          >
+            Tell us what you have in mind &rarr;
+          </a>
+        </p>
       </div>
     </section>
   );

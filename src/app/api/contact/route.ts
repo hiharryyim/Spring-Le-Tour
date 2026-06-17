@@ -5,7 +5,8 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
-    const { name, email, company, message } = await request.json();
+    const { name, email, company, role, interest, timeline, message } =
+      await request.json();
 
     // Validate required fields
     if (!name || !email || !message) {
@@ -39,6 +40,18 @@ export async function POST(request: Request) {
             <tr>
               <td style="padding: 10px 0; font-weight: bold; color: #2C2C2C; vertical-align: top;">Company</td>
               <td style="padding: 10px 0; color: #4A4A4A;">${company || "Not provided"}</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 0; font-weight: bold; color: #2C2C2C; vertical-align: top;">I am</td>
+              <td style="padding: 10px 0; color: #4A4A4A;">${role || "Not provided"}</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 0; font-weight: bold; color: #2C2C2C; vertical-align: top;">Interested in</td>
+              <td style="padding: 10px 0; color: #4A4A4A;">${interest || "Not provided"}</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 0; font-weight: bold; color: #2C2C2C; vertical-align: top;">Timeline</td>
+              <td style="padding: 10px 0; color: #4A4A4A;">${timeline || "Not provided"}</td>
             </tr>
             <tr>
               <td style="padding: 10px 0; font-weight: bold; color: #2C2C2C; vertical-align: top;">Message</td>

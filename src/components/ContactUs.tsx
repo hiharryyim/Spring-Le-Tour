@@ -18,6 +18,9 @@ export default function ContactUs() {
       name: formData.get("name") as string,
       email: formData.get("email") as string,
       company: formData.get("company") as string,
+      role: formData.get("role") as string,
+      interest: formData.get("interest") as string,
+      timeline: formData.get("timeline") as string,
       message: formData.get("message") as string,
     };
 
@@ -235,6 +238,76 @@ export default function ContactUs() {
                     className="w-full px-4 py-3 rounded-lg border border-dark/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors bg-bg"
                     placeholder="Your company (optional)"
                   />
+                </div>
+                <div>
+                  <label
+                    htmlFor="role"
+                    className="block text-sm font-medium text-dark mb-1.5"
+                  >
+                    I am
+                  </label>
+                  <select
+                    id="role"
+                    name="role"
+                    required
+                    defaultValue=""
+                    className="w-full px-4 py-3 rounded-lg border border-dark/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors bg-bg text-dark"
+                  >
+                    <option value="" disabled>
+                      Select one
+                    </option>
+                    <option>Existing mobile / grooming business owner</option>
+                    <option>New to the business, just starting out</option>
+                    <option>DIY builder or dealer</option>
+                    <option>Just exploring</option>
+                  </select>
+                </div>
+                <div>
+                  <label
+                    htmlFor="interest"
+                    className="block text-sm font-medium text-dark mb-1.5"
+                  >
+                    Interested in
+                  </label>
+                  <select
+                    id="interest"
+                    name="interest"
+                    required
+                    defaultValue=""
+                    className="w-full px-4 py-3 rounded-lg border border-dark/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors bg-bg text-dark"
+                  >
+                    <option value="" disabled>
+                      Select one
+                    </option>
+                    <option>Mobile Pet Grooming Van</option>
+                    <option>Adventure Camper</option>
+                    <option>Foundation Kit only</option>
+                    <option>Another mobile business category</option>
+                    <option>Not sure yet</option>
+                  </select>
+                </div>
+                <div>
+                  <label
+                    htmlFor="timeline"
+                    className="block text-sm font-medium text-dark mb-1.5"
+                  >
+                    Timeline
+                  </label>
+                  <select
+                    id="timeline"
+                    name="timeline"
+                    required
+                    defaultValue=""
+                    className="w-full px-4 py-3 rounded-lg border border-dark/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors bg-bg text-dark"
+                  >
+                    <option value="" disabled>
+                      Select one
+                    </option>
+                    <option>Ready now</option>
+                    <option>1 to 3 months</option>
+                    <option>3 to 6 months</option>
+                    <option>6+ months / just exploring</option>
+                  </select>
                 </div>
                 <div>
                   <label
