@@ -191,7 +191,8 @@ export default function GroomingPage() {
                 The Money Story
               </p>
               <h2 className="max-w-lg text-4xl font-bold leading-tight text-dark sm:text-5xl">
-                Start Smaller. Keep More Cash For Launch.
+                <span className="block">Start Smaller.</span>
+                <span className="block">Keep More Cash For Launch.</span>
               </h2>
             </div>
             <p className="max-w-2xl text-base leading-relaxed text-dark-light lg:ml-auto">
