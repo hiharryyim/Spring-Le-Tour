@@ -46,7 +46,7 @@ export default function WhoWeAre() {
                 <p className="font-[family-name:var(--font-playfair)] text-3xl font-bold text-primary">
                   B2B
                 </p>
-                <p className="text-sm text-dark-light mt-1">Dealer Focused</p>
+                <p className="text-sm text-dark-light mt-1">Operator Focused</p>
               </div>
             </div>
           </div>
