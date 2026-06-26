@@ -66,26 +66,6 @@ const workVanFeatures = [
 
 const buildPreviewImages = [
   {
-    src: "/images/grooming-card-white-overview.png",
-    alt: "White-background overview of the mobile grooming van layout",
-    caption: "Product Overview",
-  },
-  {
-    src: "/images/grooming-open-overview.png",
-    alt: "Open-view mobile grooming van with visible salon interior",
-    caption: "Open Salon View",
-  },
-  {
-    src: "/images/grooming-hero-front-right.png",
-    alt: "Mobile grooming van angled view with visible salon workspace",
-    caption: "Angled Salon View",
-  },
-  {
-    src: "/images/grooming-product-render.png",
-    alt: "Mobile grooming van full product render with salon interior",
-    caption: "Full Vehicle View",
-  },
-  {
     src: "/images/grooming-interior.png",
     alt: "Mobile grooming van interior build render",
     caption: "Interior Workflow",
@@ -99,6 +79,16 @@ const buildPreviewImages = [
     src: "/images/grooming-waterelectric-render.png",
     alt: "Mobile grooming van support systems render",
     caption: "Power And Water Systems",
+  },
+  {
+    src: "/images/grooming-open-overview.png",
+    alt: "Open-view mobile grooming van with visible salon interior",
+    caption: "Open Salon View",
+  },
+  {
+    src: "/images/grooming-product-render.png",
+    alt: "Mobile grooming van full product render with salon interior",
+    caption: "Full Vehicle View",
   },
 ];
 
