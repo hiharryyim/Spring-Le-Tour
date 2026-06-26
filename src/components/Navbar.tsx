@@ -2,11 +2,14 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Solutions", href: "#products" },
-  { label: "Why Us", href: "#why-us" },
+  { label: "About", href: "/#about" },
+  { label: "Solutions", href: "/#products" },
+  { label: "Grooming Van", href: "/grooming" },
+  { label: "Camper Van", href: "/camper" },
+  { label: "Why Us", href: "/#why-us" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -18,7 +21,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#" className="flex-shrink-0">
+          <Link href="/" className="flex-shrink-0">
             <Image
               src="/images/logo-horizontal.png"
               alt="Spring Le Tour"
@@ -27,22 +30,22 @@ export default function Navbar() {
               className="h-12 w-auto"
               priority
             />
-          </a>
+          </Link>
 
           {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="text-dark-light hover:text-primary font-medium transition-colors text-sm tracking-wide uppercase"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <a
               href="#contact"
-              className="bg-primary text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-primary-dark transition-colors"
+              className="bg-primary text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-primary-dark transition-colors"
             >
               Get in Touch
             </a>
@@ -85,14 +88,14 @@ export default function Navbar() {
         <div className="md:hidden bg-white border-t border-primary/10">
           <div className="px-4 py-4 space-y-3">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="block text-dark-light hover:text-primary font-medium text-sm tracking-wide uppercase py-2"
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <a
               href="#contact"

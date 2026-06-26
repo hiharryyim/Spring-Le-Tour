@@ -1,58 +1,88 @@
-import ModelStrip from "@/components/ModelStrip";
-import DemoShowcase from "@/components/DemoShowcase";
-import { demos } from "@/data/solutions";
+import Image from "next/image";
+import Link from "next/link";
+
+const products = [
+  {
+    title: "Mobile Grooming Van",
+    label: "For Groomers",
+    href: "/grooming",
+    image: "/images/grooming-exterior.png",
+    alt: "Spring Le Tour mobile grooming van build",
+    body: "A ready-to-work salon path for groomers who want to start taking appointments faster.",
+    cta: "Explore Grooming Vans",
+    fit: "contain",
+  },
+  {
+    title: "Camper Van",
+    label: "For Travel, Rental, And DIY Builds",
+    href: "/camper",
+    image: "/images/deluxe-interior.jpg",
+    alt: "Spring Le Tour finished camper van interior",
+    body: "A flexible adventure platform, from foundation kit to modular build to turn-key cabin.",
+    cta: "Explore Camper Builds",
+    fit: "cover",
+  },
+];
+
+function ArrowIcon() {
+  return (
+    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+    </svg>
+  );
+}
 
 export default function Products() {
   return (
     <section id="products" className="py-24 bg-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="text-center mb-16">
           <p className="text-primary font-medium tracking-wide uppercase text-sm mb-4">
             What We Build
           </p>
           <h2 className="font-[family-name:var(--font-playfair)] text-3xl sm:text-4xl font-bold text-dark mb-4">
-            Modular Mobile Business Solutions
+            Choose Your Vehicle Path
           </h2>
           <p className="text-dark-light text-lg max-w-2xl mx-auto">
-            We give you a proven platform and a clear big direction, and you
-            customize within it. Modular kits scale from a professional
-            foundation all the way to a turn-key, revenue-ready vehicle,
-            assembled in California.
+            Start with the path that matches your plan: a revenue-ready grooming
+            van or a flexible camper platform for travel, rental, and DIY
+            build-outs.
           </p>
         </div>
 
-        {/* The modular model, explained once */}
-        <ModelStrip />
-
-        {/* Two demos prove one platform */}
-        <div className="text-center mb-10 max-w-2xl mx-auto">
-          <p className="text-accent font-semibold tracking-wide uppercase text-sm mb-3">
-            One Platform, Proven Across Industries
-          </p>
-          <h3 className="font-[family-name:var(--font-playfair)] text-2xl sm:text-3xl font-bold text-dark mb-3">
-            Two Solutions, Ready to Build
-          </h3>
-          <p className="text-dark-light text-base">
-            The same modular platform powers both. Choose a solution below to
-            see how it is built, from Foundation Kit to turn-key.
-          </p>
+        <div className="grid gap-8 lg:grid-cols-2">
+          {products.map((product) => (
+            <Link
+              key={product.title}
+              href={product.href}
+              className="group overflow-hidden rounded-2xl border border-dark/5 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-lg"
+            >
+              <div className="relative aspect-[16/10] bg-bg-alt">
+                <Image
+                  src={product.image}
+                  alt={product.alt}
+                  fill
+                  className={`${product.fit === "contain" ? "object-contain p-5" : "object-cover"} transition-transform duration-500 group-hover:scale-[1.03]`}
+                />
+              </div>
+              <div className="p-8">
+                <p className="text-primary font-semibold tracking-wide uppercase text-sm">
+                  {product.label}
+                </p>
+                <h3 className="font-[family-name:var(--font-playfair)] mt-3 text-2xl sm:text-3xl font-bold text-dark">
+                  {product.title}
+                </h3>
+                <p className="mt-3 text-dark-light leading-relaxed">
+                  {product.body}
+                </p>
+                <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors group-hover:text-primary-dark">
+                  {product.cta}
+                  <ArrowIcon />
+                </span>
+              </div>
+            </Link>
+          ))}
         </div>
-        <DemoShowcase demos={demos} />
-
-        {/* Bridge to the broader platform (keeps the 2 demos consistent with
-            the wider category claim elsewhere on the site) */}
-        <p className="text-center text-dark-light mt-12 max-w-2xl mx-auto">
-          Building something else? These are two examples. The same modular
-          platform adapts to food carts, mobile retail, clinical units and
-          more.{" "}
-          <a
-            href="#contact"
-            className="text-primary font-medium hover:text-primary-dark transition-colors"
-          >
-            Tell us what you have in mind &rarr;
-          </a>
-        </p>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -27,18 +28,20 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5">
               {[
-                { label: "About Us", href: "#about" },
-                { label: "Products", href: "#products" },
-                { label: "Why Choose Us", href: "#why-us" },
+                { label: "About Us", href: "/#about" },
+                { label: "Products", href: "/#products" },
+                { label: "Grooming Van", href: "/grooming" },
+                { label: "Camper Van", href: "/camper" },
+                { label: "Why Choose Us", href: "/#why-us" },
                 { label: "Contact", href: "#contact" },
               ].map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm hover:text-primary-light transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

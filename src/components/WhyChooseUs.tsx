@@ -142,7 +142,7 @@ export default function WhyChooseUs() {
 
         {/* Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {reasons.map((reason, index) => (
+          {reasons.map((reason) => (
             <div
               key={reason.title}
               className="group p-8 rounded-2xl border border-dark/5 hover:border-primary/20 hover:shadow-lg transition-all duration-300"
