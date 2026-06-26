@@ -6,11 +6,11 @@ const products = [
     title: "Mobile Grooming Van",
     label: "For Groomers",
     href: "/grooming",
-    image: "/images/grooming-exterior.png",
-    alt: "Spring Le Tour mobile grooming van build",
+    image: "/images/grooming-product-render.png",
+    alt: "Spring Le Tour mobile grooming van product render",
     body: "A ready-to-work salon path for groomers who want to start taking appointments faster.",
     cta: "Explore Grooming Vans",
-    fit: "contain",
+    fit: "cover",
   },
   {
     title: "Camper Van",
@@ -62,6 +62,7 @@ export default function Products() {
                   src={product.image}
                   alt={product.alt}
                   fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
                   className={`${product.fit === "contain" ? "object-contain p-5" : "object-cover"} transition-transform duration-500 group-hover:scale-[1.03]`}
                 />
               </div>

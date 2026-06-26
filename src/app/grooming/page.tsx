@@ -109,10 +109,11 @@ export default function GroomingPage() {
     <>
       <section className="relative flex min-h-[86svh] items-center overflow-hidden bg-dark pt-28 pb-10">
         <Image
-          src="/images/grooming-exterior.png"
-          alt="Spring Le Tour mobile grooming van conversion render"
+          src="/images/grooming-product-render.png"
+          alt="Spring Le Tour mobile grooming van product render"
           fill
-          className="object-contain object-right-bottom opacity-55"
+          className="object-contain object-right-bottom opacity-70"
+          sizes="100vw"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-r from-dark via-dark/90 to-dark/30" />
