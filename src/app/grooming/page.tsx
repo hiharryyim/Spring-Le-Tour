@@ -66,6 +66,26 @@ const workVanFeatures = [
 
 const buildPreviewImages = [
   {
+    src: "/images/grooming-card-white-overview.png",
+    alt: "White-background overview of the mobile grooming van layout",
+    caption: "Product Overview",
+  },
+  {
+    src: "/images/grooming-open-overview.png",
+    alt: "Open-view mobile grooming van with visible salon interior",
+    caption: "Open Salon View",
+  },
+  {
+    src: "/images/grooming-hero-front-right.png",
+    alt: "Mobile grooming van angled view with visible salon workspace",
+    caption: "Angled Salon View",
+  },
+  {
+    src: "/images/grooming-product-render.png",
+    alt: "Mobile grooming van full product render with salon interior",
+    caption: "Full Vehicle View",
+  },
+  {
     src: "/images/grooming-interior.png",
     alt: "Mobile grooming van interior build render",
     caption: "Interior Workflow",
@@ -108,15 +128,17 @@ export default function GroomingPage() {
   return (
     <>
       <section className="relative flex min-h-[86svh] items-center overflow-hidden bg-dark pt-28 pb-10">
-        <Image
-          src="/images/grooming-product-render.png"
-          alt="Spring Le Tour mobile grooming van product render"
-          fill
-          className="object-contain object-right-bottom opacity-70"
-          sizes="100vw"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-dark via-dark/90 to-dark/30" />
+        <div className="absolute inset-y-0 right-0 w-full md:w-[76%] md:[-webkit-mask-image:linear-gradient(to_right,transparent,black_28%)] md:[mask-image:linear-gradient(to_right,transparent,black_28%)]">
+          <Image
+            src="/images/grooming-hero-front-right.png"
+            alt="Spring Le Tour mobile grooming van with visible salon interior"
+            fill
+            className="object-cover object-[46%_center] opacity-85 md:object-left md:opacity-95"
+            sizes="(min-width: 768px) 76vw, 100vw"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-dark via-dark/82 to-dark/15 md:via-dark/74 md:to-dark/0" />
         <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-bg to-transparent" />
 
         <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
