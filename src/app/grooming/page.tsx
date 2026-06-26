@@ -332,6 +332,7 @@ export default function GroomingPage() {
                     src={image.src}
                     alt={image.alt}
                     fill
+                    sizes="(min-width: 640px) 46vw, 84vw"
                     className="object-contain p-4"
                   />
                 </div>
