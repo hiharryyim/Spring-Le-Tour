@@ -76,17 +76,17 @@ const buildPreviewImages = [
     caption: "Top-Down Layout",
   },
   {
-    src: "/images/grooming-waterelectric-render.png",
+    src: "/images/generated/grooming-systems-cutaway-showroom-v4-cabinet-refined.png",
     alt: "Mobile grooming van support systems render",
     caption: "Power And Water Systems",
   },
   {
-    src: "/images/grooming-open-overview.png",
+    src: "/images/generated/grooming-open-salon-closeup.png",
     alt: "Open-view mobile grooming van with visible salon interior",
     caption: "Open Salon View",
   },
   {
-    src: "/images/grooming-product-render.png",
+    src: "/images/generated/grooming-full-vehicle-exterior.png",
     alt: "Mobile grooming van full product render with salon interior",
     caption: "Full Vehicle View",
   },
@@ -120,7 +120,7 @@ export default function GroomingPage() {
       <section className="relative flex min-h-[86svh] items-center overflow-hidden bg-dark pt-28 pb-10">
         <div className="absolute inset-y-0 right-0 w-full md:w-[76%] md:[-webkit-mask-image:linear-gradient(to_right,transparent,black_28%)] md:[mask-image:linear-gradient(to_right,transparent,black_28%)]">
           <Image
-            src="/images/grooming-hero-front-right.png"
+            src="/images/generated/grooming-hero-showroom.png"
             alt="Spring Le Tour mobile grooming van with visible salon interior"
             fill
             className="object-cover object-[46%_center] opacity-85 md:object-left md:opacity-95"
@@ -315,18 +315,20 @@ export default function GroomingPage() {
             {buildPreviewImages.map((image) => (
               <figure
                 key={image.src}
-                className="min-w-[84%] snap-start overflow-hidden rounded-2xl border border-dark/10 bg-white shadow-sm sm:min-w-[46%]"
+                className="min-w-[84%] snap-start rounded-2xl border border-dark/10 bg-white p-3 shadow-sm sm:min-w-[46%]"
               >
-                <div className="relative aspect-[16/10] bg-bg-alt">
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    sizes="(min-width: 640px) 46vw, 84vw"
-                    className="object-contain p-4"
-                  />
+                <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-bg-alt">
+                  <div className="absolute inset-3 overflow-hidden rounded-lg sm:inset-4">
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      sizes="(min-width: 640px) 46vw, 84vw"
+                      className="object-contain"
+                    />
+                  </div>
                 </div>
-                <figcaption className="px-5 py-4 text-sm font-semibold text-dark">
+                <figcaption className="px-2 pb-1 pt-4 text-sm font-semibold text-dark">
                   {image.caption}
                 </figcaption>
               </figure>
