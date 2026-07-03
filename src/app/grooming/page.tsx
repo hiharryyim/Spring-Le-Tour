@@ -66,29 +66,34 @@ const workVanFeatures = [
 
 const buildPreviewImages = [
   {
-    src: "/images/grooming-interior.png",
-    alt: "Mobile grooming van interior build render",
+    src: "/images/generated/grooming-side-systems-diagram.png",
+    alt: "Side diagram of the grooming van with labeled salon systems",
     caption: "Interior Workflow",
+    detail: "Key salon systems labeled on the actual build design.",
   },
   {
     src: "/images/grooming-topdown.png",
-    alt: "Mobile grooming van top-down layout",
+    alt: "Top-down floor plan of the grooming van salon layout with dimensions",
     caption: "Top-Down Layout",
+    detail: "The working floor plan: tub, table, storage, and equipment bays with dimensions.",
   },
   {
     src: "/images/generated/grooming-systems-cutaway-showroom-v4-cabinet-refined.png",
     alt: "Mobile grooming van support systems render",
     caption: "Power And Water Systems",
+    detail: "Batteries, tanks, and pump gear tucked in the rear bay, out of the salon.",
   },
   {
     src: "/images/generated/grooming-open-salon-closeup.png",
     alt: "Open-view mobile grooming van with visible salon interior",
     caption: "Open Salon View",
+    detail: "The curbside view your clients see at every appointment.",
   },
   {
     src: "/images/generated/grooming-full-vehicle-exterior.png",
     alt: "Mobile grooming van full product render with salon interior",
     caption: "Full Vehicle View",
+    detail: "The complete van, finished and ready to work.",
   },
 ];
 
@@ -112,6 +117,21 @@ export const metadata: Metadata = {
   title: "Mobile Grooming Van | Spring Le Tour",
   description:
     "A ready-to-work mobile pet grooming van conversion from Spring Le Tour, built in California with a lower-capital used-chassis path.",
+  openGraph: {
+    title: "Mobile Grooming Van | Spring Le Tour",
+    description:
+      "A ready-to-work mobile grooming salon with a lower-capital path to the road, built in California.",
+    type: "website",
+    url: "/grooming",
+    images: [
+      {
+        url: "/images/og/og-grooming.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Spring Le Tour mobile grooming van with open salon interior",
+      },
+    ],
+  },
 };
 
 export default function GroomingPage() {
@@ -328,8 +348,11 @@ export default function GroomingPage() {
                     />
                   </div>
                 </div>
-                <figcaption className="px-2 pb-1 pt-4 text-sm font-semibold text-dark">
-                  {image.caption}
+                <figcaption className="px-2 pb-1 pt-4">
+                  <span className="block text-sm font-semibold text-dark">{image.caption}</span>
+                  <span className="mt-1 block text-xs leading-relaxed text-dark-light">
+                    {image.detail}
+                  </span>
                 </figcaption>
               </figure>
             ))}

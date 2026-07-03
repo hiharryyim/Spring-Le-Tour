@@ -10,7 +10,10 @@
 |------|------------------|
 | Grooming homepage card | Use `/images/generated/grooming-van-elevated-layout.png`. |
 | Grooming detail hero | Use `/images/generated/grooming-hero-showroom.png`. |
+| Grooming gallery: Interior Workflow | Use `/images/generated/grooming-side-systems-diagram.png` (diagram style with labels, NOT a product render). |
+| Grooming gallery: Top-Down Layout | Use `/images/grooming-topdown.png` (original factory diagram, Harry confirmed it stays as is). |
 | Grooming systems gallery | Use `/images/generated/grooming-systems-cutaway-showroom-v4-cabinet-refined.png`. |
+| Social share (OG) images | `/images/og/og-home.jpg`, `/images/og/og-grooming.jpg`, `/images/og/og-camper.jpg` (1200x630). |
 
 ## Preferences
 - Generated project assets should live under `public/images/generated/` before being referenced by the site.

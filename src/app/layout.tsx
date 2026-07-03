@@ -15,6 +15,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://springletour.com"),
   title: "Spring Le Tour | Premium Turn-Key Mobile Solutions",
   description:
     "Spring Le Tour is a California-based design and manufacturing firm specializing in premium Sprinter Van conversions and turn-key mobile solutions for dealers and businesses.",
@@ -32,6 +33,17 @@ export const metadata: Metadata = {
       "Mobilizing Your Vision. Empowering Your Business. Premium mobile solutions engineered in California.",
     type: "website",
     url: "https://springletour.com",
+    images: [
+      {
+        url: "/images/og/og-home.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Spring Le Tour mobile grooming van product render",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
   },
 };
 

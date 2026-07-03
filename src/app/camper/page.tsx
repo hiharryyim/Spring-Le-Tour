@@ -77,6 +77,21 @@ export const metadata: Metadata = {
   title: "Camper Van | Spring Le Tour",
   description:
     "Spring Le Tour camper van builds, modular kits, and foundation platforms, assembled in California for travel, rental, and DIY build paths.",
+  openGraph: {
+    title: "Camper Van | Spring Le Tour",
+    description:
+      "Camper van builds from foundation kit to finished cabin, assembled in California for travel, rental, and DIY paths.",
+    type: "website",
+    url: "/camper",
+    images: [
+      {
+        url: "/images/og/og-camper.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Spring Le Tour camper van in the desert",
+      },
+    ],
+  },
 };
 
 export default function CamperPage() {
