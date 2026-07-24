@@ -66,34 +66,53 @@ const workVanFeatures = [
 
 const buildPreviewImages = [
   {
+    src: "/images/demo/grooming-demo-branded-open.webp",
+    alt: "Mobile grooming van finished with an example pet-wash brand wrap, side door open to the salon",
+    caption: "Finished And Wrapped",
+    detail: "Shown with an example customer brand wrap on our California demo, ready to park in the neighborhood.",
+    fit: "cover",
+  },
+  {
+    src: "/images/demo/grooming-demo-workspace.webp",
+    alt: "Real grooming van demo workspace with lift table, tub, cabinets, and lighting",
+    caption: "Real Grooming Workspace",
+    detail: "Lift table, wash area, storage, lighting, and clear working space inside the demo.",
+    fit: "cover",
+  },
+  {
+    src: "/images/demo/grooming-demo-controls.webp",
+    alt: "Water, power, battery, and climate controls in the grooming van demo",
+    caption: "At-A-Glance Controls",
+    detail: "Water levels, battery status, climate, and essential switches grouped in one panel.",
+    fit: "cover",
+  },
+  {
+    src: "/images/demo/grooming-demo-service-bay.webp",
+    alt: "Rear equipment bay with vacuum, inverter, wiring, and batteries in the grooming van demo",
+    caption: "Rear Equipment Bay",
+    detail: "Serviceable power and vacuum equipment packaged away from the main grooming area.",
+    fit: "cover",
+  },
+  {
     src: "/images/generated/grooming-side-systems-diagram.png",
     alt: "Side diagram of the grooming van with labeled salon systems",
     caption: "Interior Workflow",
-    detail: "Key salon systems labeled on the actual build design.",
+    detail: "Key salon systems labeled in the production-intent design.",
+    fit: "contain",
   },
   {
     src: "/images/grooming-topdown.png",
     alt: "Top-down floor plan of the grooming van salon layout with dimensions",
     caption: "Top-Down Layout",
     detail: "The working floor plan: tub, table, storage, and equipment bays with dimensions.",
+    fit: "contain",
   },
   {
     src: "/images/generated/grooming-systems-cutaway-showroom-v4-cabinet-refined.png",
     alt: "Mobile grooming van support systems render",
     caption: "Power And Water Systems",
-    detail: "Batteries, tanks, and pump gear tucked in the rear bay, out of the salon.",
-  },
-  {
-    src: "/images/generated/grooming-open-salon-closeup.png",
-    alt: "Open-view mobile grooming van with visible salon interior",
-    caption: "Open Salon View",
-    detail: "The curbside view your clients see at every appointment.",
-  },
-  {
-    src: "/images/generated/grooming-full-vehicle-exterior.png",
-    alt: "Mobile grooming van full product render with salon interior",
-    caption: "Full Vehicle View",
-    detail: "The complete van, finished and ready to work.",
+    detail: "The production-intent layout keeps batteries, tanks, and pump gear out of the salon.",
+    fit: "contain",
   },
 ];
 
@@ -140,10 +159,10 @@ export default function GroomingPage() {
       <section className="relative flex min-h-[86svh] items-center overflow-hidden bg-dark pt-28 pb-10">
         <div className="absolute inset-y-0 right-0 w-full md:w-[76%] md:[-webkit-mask-image:linear-gradient(to_right,transparent,black_28%)] md:[mask-image:linear-gradient(to_right,transparent,black_28%)]">
           <Image
-            src="/images/generated/grooming-hero-showroom.png"
-            alt="Spring Le Tour mobile grooming van with visible salon interior"
+            src="/images/demo/grooming-demo-branded-side-hero-v2.webp"
+            alt="Spring Le Tour mobile grooming van finished with an example pet-wash brand wrap, side door open to the salon"
             fill
-            className="object-cover object-[46%_center] opacity-85 md:object-left md:opacity-95"
+            className="object-cover object-[40%_50%] opacity-90 md:object-[50%_50%] md:opacity-100"
             sizes="(min-width: 768px) 76vw, 100vw"
             priority
           />
@@ -330,6 +349,9 @@ export default function GroomingPage() {
             <h2 className="font-[family-name:var(--font-playfair)] text-3xl font-bold text-dark sm:text-4xl">
               Real Salon Systems, Assembled Around The Grooming Workflow.
             </h2>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-dark-light">
+              See the finished California demo, inside and out, alongside the layout studies that guide the longer, production-intent build.
+            </p>
           </div>
           <div className="-mx-4 flex snap-x gap-5 overflow-x-auto px-4 pb-5 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0">
             {buildPreviewImages.map((image) => (
@@ -344,7 +366,7 @@ export default function GroomingPage() {
                       alt={image.alt}
                       fill
                       sizes="(min-width: 640px) 46vw, 84vw"
-                      className="object-contain"
+                      className={image.fit === "cover" ? "object-cover" : "object-contain"}
                     />
                   </div>
                 </div>

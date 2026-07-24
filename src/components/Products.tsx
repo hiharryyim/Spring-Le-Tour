@@ -6,11 +6,13 @@ const products = [
     title: "Mobile Grooming Van",
     label: "For Groomers",
     href: "/grooming",
-    image: "/images/generated/grooming-van-elevated-layout.png",
-    alt: "Spring Le Tour mobile grooming van white-background product overview",
+    image: "/images/demo/grooming-demo-branded-front-card.webp",
+    alt: "Spring Le Tour mobile grooming van shown with an example pet-wash brand wrap, front three-quarter view",
+    badge: "California Demo",
     body: "A ready-to-work salon path for groomers who want to start taking appointments faster.",
     cta: "Explore Grooming Vans",
-    fit: "contain",
+    fit: "cover",
+    position: "object-[50%_50%]",
   },
   {
     title: "Camper Van",
@@ -18,9 +20,11 @@ const products = [
     href: "/camper",
     image: "/images/deluxe-interior.jpg",
     alt: "Spring Le Tour finished camper van interior",
+    badge: null,
     body: "A flexible adventure platform, from foundation kit to modular build to turn-key cabin.",
     cta: "Explore Camper Builds",
     fit: "cover",
+    position: "",
   },
 ];
 
@@ -64,9 +68,14 @@ export default function Products() {
                     alt={product.alt}
                     fill
                     sizes="(min-width: 1024px) 50vw, 100vw"
-                    className={`${product.fit === "contain" ? "object-contain" : "object-cover"} transition-transform duration-500 group-hover:scale-[1.03]`}
+                    className={`${product.fit === "contain" ? "object-contain" : "object-cover"} ${product.position ?? ""} transition-transform duration-500 group-hover:scale-[1.03]`}
                   />
                 </div>
+                {product.badge ? (
+                  <span className="absolute left-4 top-4 rounded-full bg-dark/80 px-3 py-1.5 text-xs font-semibold tracking-wide text-white backdrop-blur-sm">
+                    {product.badge}
+                  </span>
+                ) : null}
               </div>
               <div className="px-5 py-6 sm:px-5 sm:py-7">
                 <p className="text-primary font-semibold tracking-wide uppercase text-sm">
