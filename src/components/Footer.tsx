@@ -61,14 +61,6 @@ export default function Footer() {
                   harry.yan@springletour.com
                 </a>
               </li>
-              <li>
-                <a
-                  href="tel:+15512675183"
-                  className="hover:text-primary-light transition-colors"
-                >
-                  +1 (551) 267-5183
-                </a>
-              </li>
               <li>11562 Range View Rd</li>
               <li>Jurupa Valley, CA 91752</li>
             </ul>
